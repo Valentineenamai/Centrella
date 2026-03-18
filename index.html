@@ -4,342 +4,567 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>For Centrella 🌹</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Tenor+Sans&family=Great+Vibes&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --rose:       #c9748a;
-    --rose-deep:  #a85470;
-    --rose-light: #f2c4ce;
-    --rose-gold:  #c8956c;
-    --gold:       #d4a96a;
-    --cream:      #fdf6f0;
-    --deep:       #3a1a1f;
-    --mid:        #7a3f4a;
-  }
+:root {
+  --blush:      #e8a0b0;
+  --blush-deep: #c4607a;
+  --wine:       #7b1f3a;
+  --wine-dark:  #3d0b1c;
+  --gold:       #d4a96a;
+  --gold-light: #f0d4a0;
+  --ivory:      #fdf5ee;
+  --ink:        #1a0810;
+}
 
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body {
-    background:var(--cream);
-    color:var(--deep);
-    font-family:'Lato',sans-serif;
-    font-weight:300;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 
-  /* floating hearts */
-  .heart-float {
-    position:fixed; pointer-events:none;
-    opacity:0; animation:heartRise linear infinite; z-index:0;
-  }
-  @keyframes heartRise {
-    0%   { transform:translateY(100vh) scale(.5) rotate(-10deg); opacity:0; }
-    10%  { opacity:.3; }
-    85%  { opacity:.2; }
-    100% { transform:translateY(-8vh)  scale(1.1) rotate(12deg);  opacity:0; }
-  }
+body {
+  background: var(--wine-dark);
+  color: var(--ivory);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: default;
+}
 
-  /* ── HERO ── */
-  .hero {
-    min-height:100svh;
-    display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    text-align:center; padding:50px 24px 90px;
-    position:relative;
-    background:linear-gradient(165deg,#fdeaf0 0%,#fdf6f0 45%,#fef0e3 100%);
-    overflow:hidden;
-  }
-  .hero::before {
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 75% 55% at 85% 12%,rgba(201,116,138,.16) 0%,transparent 65%),
-      radial-gradient(ellipse 55% 45% at 8%  88%,rgba(212,169,106,.12) 0%,transparent 55%),
-      radial-gradient(ellipse 40% 35% at 50% 50%,rgba(242,196,206,.08) 0%,transparent 60%);
-  }
-  .petal {
-    position:absolute; border-radius:50% 0 50% 0;
-    pointer-events:none; animation:drift linear infinite;
-  }
-  @keyframes drift {
-    0%  { transform:translateY(-60px) rotate(0deg);   opacity:0;  }
-    8%  { opacity:.22; } 92%{ opacity:.18; }
-    100%{ transform:translateY(110svh) rotate(400deg); opacity:0; }
-  }
-  .hero-opening {
-    font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:clamp(13px,3.5vw,17px); color:var(--rose-gold); letter-spacing:2px;
-    animation:fadeUp 1s ease both; margin-bottom:6px;
-  }
-  .hero-eyebrow {
-    font-size:9px; letter-spacing:6px; text-transform:uppercase;
-    color:var(--rose-gold); animation:fadeUp 1s ease .1s both;
-  }
-  .hero-divider {
-    display:flex; align-items:center; gap:16px;
-    margin:16px auto; animation:fadeUp 1s ease .2s both;
-  }
-  .hdl { width:60px; height:1px; background:linear-gradient(to right,transparent,var(--gold)); }
-  .hdr { width:60px; height:1px; background:linear-gradient(to left, transparent,var(--gold)); }
-  .hero-name {
-    font-family:'Cinzel',serif;
-    font-size:clamp(52px,19vw,108px);
-    font-weight:700; line-height:1;
-    letter-spacing:clamp(5px,2.5vw,14px);
-    background:linear-gradient(135deg,var(--mid) 0%,var(--rose) 38%,var(--gold) 72%,var(--rose-deep) 100%);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    background-size:200% auto;
-    animation:fadeUp 1s ease .3s both, shimmer 4s linear 1.3s infinite;
-  }
-  @keyframes shimmer { 0%{background-position:0% center} 100%{background-position:200% center} }
-  .hero-sub {
-    font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:clamp(16px,4.8vw,26px); color:var(--mid);
-    margin-top:12px; line-height:1.5;
-    animation:fadeUp 1s ease .45s both;
-  }
-  .hero-hearts {
-    display:flex; gap:10px; margin-top:20px;
-    animation:fadeUp 1s ease .6s both;
-  }
-  .hero-hearts span { font-size:18px; animation:heartbeat 2.4s ease infinite; }
-  .hero-hearts span:nth-child(2){ animation-delay:.3s; }
-  .hero-hearts span:nth-child(3){ animation-delay:.6s; }
-  @keyframes heartbeat {
-    0%,100%{transform:scale(1)} 15%{transform:scale(1.35)} 30%{transform:scale(1)} 45%{transform:scale(1.2)} 60%{transform:scale(1)}
-  }
-  .scroll-hint {
-    position:absolute; bottom:26px;
-    display:flex; flex-direction:column; align-items:center; gap:6px;
-    cursor:pointer; animation:fadeUp 1s ease 1.3s both;
-  }
-  .scroll-hint span { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rose-gold); }
-  .scroll-arrow { width:1px; height:38px; background:linear-gradient(to bottom,var(--gold),transparent); animation:pulse 2s ease infinite; }
-  @keyframes pulse  { 0%,100%{opacity:.3}  50%{opacity:1}  }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+/* ─── CUSTOM CURSOR ─── */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--blush);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: transform .15s, background .2s, width .2s, height .2s;
+  mix-blend-mode: screen;
+}
+.cursor.big { width: 40px; height: 40px; background: rgba(232,160,176,.3); }
 
-  /* ── SHARED ── */
-  .section { max-width:880px; margin:0 auto; padding:72px 18px; }
-  .sec-label { text-align:center; font-size:9px; letter-spacing:5px; text-transform:uppercase; color:var(--rose-gold); margin-bottom:8px; }
-  .sec-title { text-align:center; font-family:'Cinzel',serif; font-size:clamp(20px,5.5vw,32px); font-weight:400; letter-spacing:3px; color:var(--deep); }
-  .divider { display:flex; align-items:center; gap:12px; justify-content:center; margin:18px auto 0; }
-  .dl { width:50px; height:1px; background:linear-gradient(to right,transparent,var(--gold)); }
-  .dr { width:50px; height:1px; background:linear-gradient(to left, transparent,var(--gold)); }
-  .dg { font-size:14px; color:var(--gold); }
+/* ─── FLOATING PARTICLES ─── */
+.particle {
+  position: fixed; pointer-events: none; z-index: 1;
+  font-size: 12px; opacity: 0;
+  animation: particleRise linear infinite;
+}
+@keyframes particleRise {
+  0%   { transform: translateY(100vh) rotate(0deg) scale(.4); opacity: 0; }
+  8%   { opacity: .5; }
+  90%  { opacity: .15; }
+  100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
+}
 
-  /* ── DEDICATION ── */
-  .dedication-bg {
-    background:linear-gradient(135deg,#3a1a1f 0%,#6b2640 50%,#3a1a1f 100%);
-    position:relative; overflow:hidden;
-  }
-  .dedication-bg::before {
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 60% 80% at 20% 40%,rgba(201,116,138,.18) 0%,transparent 55%),
-      radial-gradient(ellipse 50% 60% at 80% 60%,rgba(212,169,106,.15) 0%,transparent 50%);
-  }
-  .dedication-inner {
-    position:relative; z-index:1; text-align:center;
-    padding:70px 24px 74px; max-width:700px; margin:0 auto;
-  }
-  .ded-rose { font-size:46px; display:block; margin-bottom:18px; animation:bloomRose 3s ease infinite; }
-  @keyframes bloomRose { 0%,100%{transform:scale(1) rotate(-4deg)} 50%{transform:scale(1.15) rotate(4deg)} }
-  .ded-eyebrow { font-size:9px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); opacity:.75; display:block; margin-bottom:14px; }
-  .ded-title { font-family:'Cinzel',serif; font-size:clamp(22px,6vw,38px); font-weight:600; color:white; letter-spacing:3px; line-height:1.25; margin-bottom:24px; }
-  .ded-title em { font-style:normal; color:var(--rose-light); }
-  .ded-divider { display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 26px; }
-  .ddl { width:50px; height:1px; background:linear-gradient(to right,transparent,var(--gold)); }
-  .ddr { width:50px; height:1px; background:linear-gradient(to left, transparent,var(--gold)); }
-  .ded-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,4.5vw,22px); line-height:2; color:rgba(255,255,255,.88); margin-bottom:32px; }
-  .ded-from { display:inline-flex; flex-direction:column; align-items:center; gap:6px; background:rgba(255,255,255,.06); border:1px solid rgba(212,169,106,.3); border-radius:50px; padding:14px 34px; }
-  .ded-from-label { font-size:8px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); opacity:.7; }
-  .ded-from-name  { font-family:'Cinzel',serif; font-size:clamp(18px,5vw,28px); font-weight:600; color:white; letter-spacing:4px; }
+/* ─── HERO ─── */
+.hero {
+  min-height: 100svh;
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 60px 24px 100px;
+}
 
-  /* ── MAGIC SHE CARRIES ── */
-  .moments-bg { background:linear-gradient(180deg,#fff8f5 0%,#fdf0f4 100%); }
-  .moments-list { display:flex; flex-direction:column; gap:16px; margin-top:44px; max-width:600px; margin-left:auto; margin-right:auto; }
-  .moment-card {
-    border-radius:22px; background:white;
-    box-shadow:0 6px 30px rgba(201,116,138,.09);
-    border:1px solid rgba(201,116,138,.13);
-    position:relative; overflow:hidden;
-    transition:transform .35s,box-shadow .35s;
-  }
-  .moment-card:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(201,116,138,.15); }
-  .moment-card::before {
-    content:''; position:absolute; top:0; left:0; right:0;
-    height:3px; background:linear-gradient(to right,var(--rose),var(--gold),var(--rose));
-    background-size:200% auto; animation:shimmerBar 3s linear infinite;
-  }
-  @keyframes shimmerBar { 0%{background-position:0%} 100%{background-position:200%} }
-  .moment-inner { display:flex; align-items:flex-start; gap:20px; padding:28px 24px; }
-  @media(max-width:460px){
-    .moment-inner { flex-direction:column; align-items:center; text-align:center; gap:10px; padding:24px 18px; }
-  }
-  .moment-emoji { font-size:36px; flex-shrink:0; line-height:1; margin-top:2px; animation:floatEmoji 3s ease infinite; }
-  @keyframes floatEmoji { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
-  .moment-card:nth-child(2) .moment-emoji { animation-delay:.5s; }
-  .moment-card:nth-child(3) .moment-emoji { animation-delay:1s; }
-  .moment-card:nth-child(4) .moment-emoji { animation-delay:1.5s; }
-  .moment-card:nth-child(5) .moment-emoji { animation-delay:2s; }
-  .moment-title { font-family:'Cinzel',serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--rose); margin-bottom:8px; }
-  .moment-text  { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.9; color:var(--mid); }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, #7b1f3a 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, #4a0d22 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 80%, #3d0b1c 0%, transparent 55%),
+    #1a0810;
+}
 
-  /* ── GALLERY ── */
-  .gallery-bg { background:linear-gradient(180deg,#fdf6f0 0%,#fce8ef 50%,#fdf6f0 100%); }
-  .gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:44px; }
+/* Vignette overlay */
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(10,2,7,.7) 100%);
+}
 
-  figure.g-item {
-    margin:0; display:flex; flex-direction:column;
-    border-radius:18px; overflow:hidden;
-    background:white;
-    border:1px solid rgba(201,116,138,.18);
-    box-shadow:0 4px 20px rgba(201,116,138,.08);
-    cursor:pointer;
-    transition:transform .35s,box-shadow .35s;
-    position:relative;
-  }
-  figure.g-item:hover { transform:translateY(-5px); box-shadow:0 18px 44px rgba(201,116,138,.18); }
-  figure.g-item:active { transform:scale(.97); }
-  figure.g-item.wide { grid-column:span 2; }
+/* Grain texture */
+.hero-grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
 
-  .g-media { position:relative; overflow:hidden; background:linear-gradient(135deg,#fce8ef,#f9ede3); }
-  figure.g-item:not(.wide) .g-media { aspect-ratio:4/5; }
-  figure.g-item.wide        .g-media { aspect-ratio:16/9; }
+.hero-inner { position: relative; z-index: 2; }
 
-  .g-media img,
-  .g-media video {
-    width:100%; height:100%; object-fit:cover; display:block;
-    transition:transform .45s ease;
-  }
-  figure.g-item:hover .g-media img,
-  figure.g-item:hover .g-media video { transform:scale(1.06); }
+.hero-overline {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: clamp(9px, 2vw, 11px);
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .8;
+  animation: fadeSlideUp 1.2s ease both;
+  margin-bottom: 20px;
+}
 
-  .video-badge {
-    position:absolute; top:9px; left:9px;
-    background:rgba(58,26,31,.65); backdrop-filter:blur(4px);
-    color:white; font-size:8px; letter-spacing:2px; text-transform:uppercase;
-    padding:4px 9px; border-radius:20px; pointer-events:none;
-  }
+.hero-rose-line {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  animation: fadeSlideUp 1.2s ease .15s both;
+  margin-bottom: 28px;
+}
+.hero-rule { flex: 1; max-width: 80px; height: 1px; background: linear-gradient(to right, transparent, rgba(212,169,106,.5)); }
+.hero-rule.r { background: linear-gradient(to left, transparent, rgba(212,169,106,.5)); }
+.hero-icon { font-size: 22px; animation: bloom 4s ease infinite; }
+@keyframes bloom {
+  0%,100% { transform: scale(1) rotate(-5deg); }
+  50%     { transform: scale(1.2) rotate(5deg); }
+}
 
-  figcaption {
-    padding:11px 14px 12px;
-    font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:clamp(12px,3vw,14px); line-height:1.5; color:var(--mid);
-    text-align:center;
-    border-top:1px solid rgba(201,116,138,.1);
-    background:white; flex-shrink:0;
-  }
+.hero-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(68px, 22vw, 160px);
+  line-height: .9;
+  background: linear-gradient(135deg, #f0d4a0 0%, #e8a0b0 35%, #d4a96a 65%, #f0d4a0 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: fadeSlideUp 1.2s ease .3s both, goldShimmer 5s linear 1.5s infinite;
+  filter: drop-shadow(0 0 40px rgba(232,160,176,.25));
+}
+@keyframes goldShimmer { 0%{background-position:0% center} 100%{background-position:300% center} }
 
-  /* ── POEM ── */
-  .poem-bg { background:linear-gradient(180deg,#fdf6f0 0%,#fff4f8 100%); }
-  .poem-wrap {
-    max-width:560px; margin:44px auto 0;
-    background:white; border-radius:24px;
-    padding:52px 26px 48px; text-align:center; position:relative;
-    box-shadow:0 10px 50px rgba(201,116,138,.10);
-    border:1px solid rgba(201,116,138,.14);
-  }
-  .poem-wrap::before,.poem-wrap::after {
-    font-family:'Cormorant Garamond',serif; font-size:100px; line-height:1;
-    color:var(--rose-light); position:absolute; pointer-events:none; opacity:.6;
-  }
-  .poem-wrap::before { content:'\201C'; top:-8px;    left:16px; }
-  .poem-wrap::after  { content:'\201D'; bottom:-38px; right:16px; }
-  .poem-text { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(15px,4.2vw,19px); line-height:2.1; color:var(--mid); position:relative; z-index:1; }
-  .poem-sig  { margin-top:26px; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); }
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(15px, 4.5vw, 22px);
+  color: rgba(253,245,238,.7);
+  margin-top: 22px; margin-bottom: 8px;
+  animation: fadeSlideUp 1.2s ease .45s both;
+  letter-spacing: 1px;
+}
 
-  /* ── LOVE LETTER ── */
-  .message-bg {
-    background:linear-gradient(160deg,#2e1018 0%,#5c2233 45%,#3a1a1f 100%);
-    position:relative; overflow:hidden;
-  }
-  .message-bg::before {
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 65% 65% at 18% 50%,rgba(201,116,138,.18) 0%,transparent 58%),
-      radial-gradient(ellipse 50% 50% at 84% 28%,rgba(212,169,106,.14) 0%,transparent 52%);
-  }
-  .message-bg::after {
-    content:'💌'; position:absolute; bottom:-10px; right:20px;
-    font-size:clamp(80px,20vw,140px); opacity:.05; pointer-events:none;
-    animation:floatEnv 6s ease infinite;
-  }
-  @keyframes floatEnv { 0%,100%{transform:rotate(-8deg) scale(1)} 50%{transform:rotate(4deg) scale(1.04)} }
-  .message-inner { position:relative; z-index:1; max-width:660px; margin:0 auto; text-align:center; padding:86px 22px 96px; }
-  .msg-eyebrow { font-size:9px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); opacity:.8; display:block; margin-bottom:14px; }
-  .msg-title   { font-family:'Cinzel',serif; font-size:clamp(24px,7vw,44px); font-weight:600; color:white; letter-spacing:4px; }
-  .msg-divider { display:flex; align-items:center; justify-content:center; gap:14px; margin:26px 0; }
-  .mdl { width:50px; height:1px; background:linear-gradient(to right,transparent,var(--gold)); }
-  .mdr { width:50px; height:1px; background:linear-gradient(to left, transparent,var(--gold)); }
-  .msg-body { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(16px,4.3vw,21px); line-height:2.05; color:rgba(255,255,255,.88); }
-  .msg-body strong { font-style:normal; font-weight:600; color:var(--rose-light); font-family:'Cinzel',serif; font-size:.9em; letter-spacing:1px; }
-  .msg-close { display:inline-block; margin-top:44px; font-family:'Cinzel',serif; font-size:12px; letter-spacing:3px; color:var(--gold); border:1px solid rgba(212,169,106,.3); border-radius:50px; padding:12px 30px; }
+.hero-from {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); opacity: .65;
+  animation: fadeSlideUp 1.2s ease .55s both;
+}
 
-  /* ── FOOTER ── */
-  footer { background:var(--deep); padding:36px 20px 30px; text-align:center; }
-  .footer-rose { font-size:30px; display:block; margin-bottom:12px; animation:bloomRose 3.5s ease infinite; }
-  .footer-dedicating { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(14px,3.5vw,17px); color:rgba(255,255,255,.65); margin-bottom:8px; letter-spacing:.5px; }
-  .footer-name { font-family:'Cinzel',serif; font-size:clamp(18px,5vw,24px); font-weight:600; letter-spacing:5px; background:linear-gradient(to right,var(--rose-light),var(--gold),var(--rose-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; background-size:200% auto; animation:shimmer 3s linear infinite; margin-bottom:18px; }
-  .footer-divider { display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom:16px; }
-  .fdl { width:40px; height:1px; background:linear-gradient(to right,transparent,rgba(212,169,106,.5)); }
-  .fdr { width:40px; height:1px; background:linear-gradient(to left, transparent,rgba(212,169,106,.5)); }
-  .footer-built { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,.3); }
-  .footer-built span { color:var(--rose-gold); }
+.hero-hearts {
+  display: flex; gap: 16px; justify-content: center;
+  margin-top: 36px;
+  animation: fadeSlideUp 1.2s ease .65s both;
+}
+.hero-hearts span {
+  font-size: 20px;
+  animation: pulse 2.5s ease infinite;
+  display: inline-block;
+}
+.hero-hearts span:nth-child(2) { animation-delay: .4s; }
+.hero-hearts span:nth-child(3) { animation-delay: .8s; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 40%{transform:scale(1.4)} }
 
-  /* ── LIGHTBOX ── */
-  .lightbox { display:none; position:fixed; inset:0; background:rgba(16,3,7,.96); z-index:9999; align-items:center; justify-content:center; padding:20px; flex-direction:column; gap:14px; }
-  .lightbox.open { display:flex; }
-  .lightbox img,.lightbox video { max-width:92vw; max-height:78svh; border-radius:12px; object-fit:contain; }
-  .lb-caption { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:rgba(255,255,255,.65); text-align:center; max-width:80vw; }
-  .lb-close { position:absolute; top:16px; right:20px; font-size:28px; color:white; opacity:.6; cursor:pointer; background:none; border:none; line-height:1; transition:opacity .2s; }
-  .lb-close:hover { opacity:1; }
+.scroll-down {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeSlideUp 1.2s ease 1.2s both;
+  cursor: pointer;
+}
+.scroll-down span { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); opacity: .6; }
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:.2; transform:scaleY(.7)} 50%{opacity:.8; transform:scaleY(1)} }
 
-  /* ── REVEAL ── */
-  .reveal { opacity:0; transform:translateY(28px); transition:opacity .9s ease,transform .9s ease; }
-  .reveal.visible { opacity:1; transform:translateY(0); }
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── RESPONSIVE ── */
-  @media(min-width:560px){
-    .gallery-grid { grid-template-columns:repeat(3,1fr); gap:14px; }
-    figure.g-item.wide { grid-column:span 3; }
-    figure.g-item:not(.wide) .g-media { aspect-ratio:1; }
-  }
-  @media(min-width:900px){ .section { padding:90px 32px; } }
+/* ─── SECTION SHARED ─── */
+.section {
+  max-width: 900px; margin: 0 auto;
+  padding: 90px 22px;
+}
+.sec-overline {
+  text-align: center;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 9px; letter-spacing: 7px; text-transform: uppercase;
+  color: var(--gold); opacity: .7; margin-bottom: 12px;
+}
+.sec-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 7vw, 48px);
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.2;
+}
+.sec-title em { font-style: italic; color: var(--blush); }
+.ornament {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  margin: 20px auto 0;
+}
+.orn-line { width: 60px; height: 1px; }
+.orn-line.l { background: linear-gradient(to right, transparent, var(--gold)); }
+.orn-line.r { background: linear-gradient(to left,  transparent, var(--gold)); }
+.orn-icon { font-size: 16px; color: var(--gold); }
+
+/* ─── DEDICATION ─── */
+.dedication-wrap {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 40%, rgba(123,31,58,.6) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 70% 60%, rgba(212,169,106,.08) 0%, transparent 55%),
+    #200a12;
+  overflow: hidden;
+}
+.dedication-wrap::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px; opacity: .15;
+}
+
+.ded-inner {
+  position: relative; z-index: 1;
+  max-width: 680px; margin: 0 auto;
+  text-align: center; padding: 90px 24px 100px;
+}
+.ded-big-rose {
+  font-size: 56px; display: block; margin-bottom: 26px;
+  animation: bloom 4s ease infinite;
+}
+.ded-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(50px, 16vw, 90px);
+  background: linear-gradient(135deg, #f0d4a0, #e8a0b0, #d4a96a);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: goldShimmer 4s linear infinite;
+  line-height: 1; margin-bottom: 30px;
+  filter: drop-shadow(0 0 30px rgba(232,160,176,.2));
+}
+.ded-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(16px, 4vw, 21px);
+  line-height: 2;
+  color: rgba(253,245,238,.8);
+  margin-bottom: 40px;
+}
+.ded-badge {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
+  border: 1px solid rgba(212,169,106,.25);
+  border-radius: 60px; padding: 14px 38px;
+  background: rgba(212,169,106,.05);
+  backdrop-filter: blur(8px);
+}
+.ded-badge-label { font-family:'Tenor Sans',sans-serif; font-size:8px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); opacity:.6; }
+.ded-badge-name  { font-family:'Playfair Display',serif; font-size:clamp(18px,5vw,26px); font-weight:700; color:var(--ivory); letter-spacing:4px; }
+
+/* ─── QUALITIES ─── */
+.qualities-wrap {
+  background:
+    radial-gradient(ellipse 100% 50% at 50% 0%, rgba(123,31,58,.15) 0%, transparent 60%),
+    #0e050a;
+}
+.qualities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 60px;
+  border: 1px solid rgba(212,169,106,.12);
+  border-radius: 24px;
+  overflow: hidden;
+}
+@media(min-width:600px) { .qualities-grid { grid-template-columns: 1fr 1fr; } }
+
+.quality-card {
+  padding: 42px 34px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(212,169,106,.08);
+  position: relative; overflow: hidden;
+  transition: background .4s;
+}
+.quality-card:hover { background: rgba(232,160,176,.05); }
+.quality-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,169,106,.4), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .6s ease;
+}
+.quality-card:hover::before { transform: scaleX(1); }
+.quality-emoji {
+  font-size: 36px; display: block; margin-bottom: 16px;
+  animation: floatEmoji 3.5s ease infinite;
+}
+.quality-card:nth-child(2) .quality-emoji { animation-delay: .6s; }
+.quality-card:nth-child(3) .quality-emoji { animation-delay: 1.2s; }
+.quality-card:nth-child(4) .quality-emoji { animation-delay: 1.8s; }
+.quality-card:nth-child(5) .quality-emoji { animation-delay: 2.4s; }
+@keyframes floatEmoji { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+.quality-title {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; opacity: .8;
+}
+.quality-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(15px, 3.5vw, 17px);
+  line-height: 1.9;
+  color: rgba(253,245,238,.7);
+}
+
+/* ─── GALLERY ─── */
+.gallery-wrap {
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 30%, rgba(123,31,58,.2) 0%, transparent 60%),
+    #14060d;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-top: 56px;
+}
+@media(min-width:560px) { .gallery-grid { grid-template-columns: repeat(3,1fr); gap: 12px; } }
+
+figure.g-item {
+  margin: 0; border-radius: 16px; overflow: hidden;
+  position: relative; cursor: pointer;
+  border: 1px solid rgba(212,169,106,.12);
+  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s;
+}
+figure.g-item:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(232,160,176,.2); }
+figure.g-item.wide { grid-column: span 2; }
+@media(min-width:560px) { figure.g-item.wide { grid-column: span 3; } }
+
+.g-media { position: relative; overflow: hidden; }
+figure.g-item:not(.wide) .g-media { aspect-ratio: 4/5; }
+@media(min-width:560px) { figure.g-item:not(.wide) .g-media { aspect-ratio: 1; } }
+figure.g-item.wide .g-media { aspect-ratio: 16/9; }
+
+.g-media img, .g-media video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .6s cubic-bezier(.16,1,.3,1);
+}
+figure.g-item:hover .g-media img,
+figure.g-item:hover .g-media video { transform: scale(1.08); }
+
+.g-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20,6,13,.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+figcaption {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  padding: 12px 14px 14px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(11px, 2.5vw, 13px);
+  line-height: 1.4; color: rgba(253,245,238,.85); text-align: center;
+  transform: translateY(4px); opacity: 0;
+  transition: transform .3s, opacity .3s;
+}
+figure.g-item:hover figcaption { transform: translateY(0); opacity: 1; }
+
+.video-badge {
+  position: absolute; top: 10px; left: 10px; z-index: 3;
+  background: rgba(20,6,13,.7); backdrop-filter: blur(6px);
+  color: var(--gold); font-family: 'Tenor Sans', sans-serif;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 20px;
+  border: 1px solid rgba(212,169,106,.2);
+}
+
+/* ─── POEM ─── */
+.poem-wrap-outer {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 60%, rgba(123,31,58,.25) 0%, transparent 60%),
+    #0e050a;
+}
+.poem-card {
+  max-width: 600px; margin: 60px auto 0;
+  position: relative;
+  border: 1px solid rgba(212,169,106,.18);
+  border-radius: 28px;
+  padding: 64px 36px 56px;
+  background: linear-gradient(145deg, rgba(255,255,255,.03), rgba(123,31,58,.08));
+  backdrop-filter: blur(10px);
+  text-align: center;
+  overflow: hidden;
+}
+.poem-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.poem-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, var(--blush), transparent);
+}
+.poem-quote-mark {
+  font-family: 'Great Vibes', cursive;
+  font-size: 120px; line-height: .6;
+  color: var(--wine); opacity: .4;
+  position: absolute; top: 10px; left: 18px;
+  pointer-events: none;
+}
+.poem-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(15px, 4vw, 18px);
+  line-height: 2.2;
+  color: rgba(253,245,238,.85);
+  position: relative; z-index: 1;
+}
+.poem-sig {
+  margin-top: 30px;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); opacity: .6;
+}
+
+/* ─── LETTER ─── */
+.letter-wrap {
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 50%, #5a1530 0%, transparent 70%),
+    #1a0810;
+  position: relative; overflow: hidden;
+}
+.letter-wrap::before {
+  content: '💌';
+  position: absolute; bottom: -20px; right: -10px;
+  font-size: clamp(100px, 25vw, 200px); opacity: .04;
+  animation: floatEnv 8s ease infinite;
+  pointer-events: none;
+}
+@keyframes floatEnv { 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(6deg) scale(1.05)} }
+
+.letter-inner {
+  max-width: 700px; margin: 0 auto;
+  text-align: center; padding: 100px 24px 110px;
+  position: relative; z-index: 1;
+}
+.letter-salutation {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(40px, 12vw, 72px);
+  color: var(--blush);
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 20px rgba(232,160,176,.3));
+}
+.letter-body {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(16px, 4vw, 20px);
+  line-height: 2.1;
+  color: rgba(253,245,238,.82);
+  text-align: left;
+  margin-top: 36px;
+}
+.letter-body strong {
+  font-style: normal;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: .8em; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blush); font-weight: 400;
+}
+.letter-sign {
+  margin-top: 50px; text-align: center;
+}
+.letter-sign-from {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(32px, 9vw, 54px);
+  color: var(--gold);
+  filter: drop-shadow(0 0 16px rgba(212,169,106,.2));
+}
+.letter-love-line {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); opacity: .55; margin-top: 4px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: #0e050a;
+  border-top: 1px solid rgba(212,169,106,.1);
+  padding: 56px 24px 48px;
+  text-align: center;
+}
+.footer-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(52px, 15vw, 86px);
+  background: linear-gradient(135deg, var(--blush), var(--gold), var(--blush));
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: goldShimmer 3.5s linear infinite;
+  filter: drop-shadow(0 0 24px rgba(232,160,176,.2));
+}
+.footer-line { font-family:'Tenor Sans',sans-serif; font-size:9px; letter-spacing:4px; text-transform:uppercase; color:rgba(212,169,106,.4); margin-top:18px; }
+.footer-line span { color: var(--blush); opacity: .7; }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,2,7,.97); z-index: 9999;
+  align-items: center; justify-content: center;
+  padding: 24px; flex-direction: column; gap: 18px;
+  backdrop-filter: blur(12px);
+}
+.lightbox.open { display: flex; }
+.lightbox img, .lightbox video { max-width: 92vw; max-height: 78svh; border-radius: 16px; object-fit: contain; border: 1px solid rgba(212,169,106,.15); }
+.lb-caption { font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:rgba(253,245,238,.55); text-align:center; max-width:70vw; }
+.lb-close {
+  position: absolute; top: 20px; right: 24px;
+  font-size: 20px; color: var(--ivory); opacity: .5; cursor: pointer;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  transition: opacity .2s, background .2s;
+}
+.lb-close:hover { opacity: 1; background: rgba(255,255,255,.15); }
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+
 <!-- HERO -->
-<div class="hero" id="hero">
-  <p class="hero-opening">This page was made with love, just for you</p>
-  <p class="hero-eyebrow">A dedication from VJuma</p>
-  <div class="hero-divider">
-    <div class="hdl"></div><span style="font-size:16px;color:var(--gold);">🌹</span><div class="hdr"></div>
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+
+  <div class="hero-inner">
+    <p class="hero-overline">A dedication from VJuma</p>
+
+    <div class="hero-rose-line">
+      <div class="hero-rule"></div>
+      <span class="hero-icon">🌹</span>
+      <div class="hero-rule r"></div>
+    </div>
+
+    <h1 class="hero-name">Centrella</h1>
+
+    <p class="hero-subtitle">The most breathtakingly beautiful girl<br>I have ever had the honour of knowing</p>
+    <p class="hero-from">Made with love &nbsp;·&nbsp; Always</p>
+
+    <div class="hero-hearts">
+      <span>🌸</span><span>💕</span><span>🌹</span><span>💕</span><span>🌸</span>
+    </div>
   </div>
-  <h1 class="hero-name">Centrella</h1>
-  <p class="hero-sub">The most breathtakingly beautiful girl<br>I have ever had the honour of knowing</p>
-  <div class="hero-hearts">
-    <span>🌸</span><span>💕</span><span>🌸</span>
+
+  <div class="scroll-down" onclick="document.getElementById('dedication').scrollIntoView({behavior:'smooth'})">
+    <span>For you</span>
+    <div class="scroll-line"></div>
   </div>
-  <div class="hero-divider" style="margin-top:18px;margin-bottom:0;">
-    <div class="hdl"></div><span style="font-size:12px;color:var(--gold);">✦</span><div class="hdr"></div>
-  </div>
-  <div class="scroll-hint" onclick="document.getElementById('dedication').scrollIntoView({behavior:'smooth'})">
-    <span>For you</span><div class="scroll-arrow"></div>
-  </div>
-</div>
+</section>
 
 
 <!-- DEDICATION -->
-<div class="dedication-bg" id="dedication">
-  <div class="dedication-inner">
-    <span class="ded-rose reveal">🌹</span>
-    <span class="ded-eyebrow reveal">A dedication</span>
-    <h2 class="ded-title reveal">This is for <em>Centrella</em> —<br>with every piece of sincerity I own</h2>
-    <div class="ded-divider reveal">
-      <div class="ddl"></div><span style="color:var(--gold);font-size:14px;">✦</span><div class="ddr"></div>
-    </div>
+<div class="dedication-wrap" id="dedication">
+  <div class="ded-inner">
+    <span class="ded-big-rose reveal">🌹</span>
+    <div class="ded-name reveal">Centrella</div>
+
     <p class="ded-text reveal">
       Some things in this world are so beautiful they feel almost impossible —
       a sky full of stars, the first light of dawn, the sound of rain on a quiet night.
@@ -349,69 +574,59 @@
       an honest heart that simply wanted you to feel, for one moment,
       just how extraordinary you truly are.
     </p>
-    <div class="ded-from reveal">
-      <span class="ded-from-label">Dedicated by</span>
-      <span class="ded-from-name">VJuma</span>
+
+    <div class="ornament reveal" style="margin-bottom:32px;">
+      <div class="orn-line l"></div>
+      <span class="orn-icon">✦</span>
+      <div class="orn-line r"></div>
+    </div>
+
+    <div class="ded-badge reveal">
+      <span class="ded-badge-label">Dedicated by</span>
+      <span class="ded-badge-name">VJuma</span>
     </div>
   </div>
 </div>
 
 
 <!-- THE MAGIC SHE CARRIES -->
-<div class="moments-bg" id="moments">
+<div class="qualities-wrap">
   <div class="section">
-    <p class="sec-label reveal">All About Her</p>
-    <h2 class="sec-title reveal">The Magic She Carries</h2>
-    <div class="divider reveal"><div class="dl"></div><span class="dg">🌸</span><div class="dr"></div></div>
-    <div class="moments-list">
+    <p class="sec-overline reveal">All about her</p>
+    <h2 class="sec-title reveal">The Magic She <em>Carries</em></h2>
+    <div class="ornament reveal"><div class="orn-line l"></div><span class="orn-icon">🌸</span><div class="orn-line r"></div></div>
 
-      <div class="moment-card reveal" style="transition-delay:.06s">
-        <div class="moment-inner">
-          <span class="moment-emoji">🌙</span>
-          <div>
-            <div class="moment-title">Her Presence</div>
-            <p class="moment-text">She walks in and the whole room quietly rearranges itself around her — not because she demands attention, but because the heart simply cannot look anywhere else.</p>
-          </div>
-        </div>
+    <div class="qualities-grid" style="margin-top:56px;">
+
+      <div class="quality-card reveal" style="transition-delay:.06s">
+        <span class="quality-emoji">🌙</span>
+        <div class="quality-title">Her Presence</div>
+        <p class="quality-text">She walks in and the whole room quietly rearranges itself around her — not because she demands attention, but because the heart simply cannot look anywhere else.</p>
       </div>
 
-      <div class="moment-card reveal" style="transition-delay:.14s">
-        <div class="moment-inner">
-          <span class="moment-emoji">🦋</span>
-          <div>
-            <div class="moment-title">Her Smile</div>
-            <p class="moment-text">It arrives softly, like the very first light of sunrise — and suddenly everything that felt grey becomes golden. One smile, and the whole world is worth it.</p>
-          </div>
-        </div>
+      <div class="quality-card reveal" style="transition-delay:.12s">
+        <span class="quality-emoji">🦋</span>
+        <div class="quality-title">Her Smile</div>
+        <p class="quality-text">It arrives softly, like the very first light of sunrise — and suddenly everything that felt grey becomes golden. One smile, and the whole world is worth it.</p>
       </div>
 
-      <div class="moment-card reveal" style="transition-delay:.22s">
-        <div class="moment-inner">
-          <span class="moment-emoji">💌</span>
-          <div>
-            <div class="moment-title">The Feeling She Gives</div>
-            <p class="moment-text">There are people you meet and forget by the next morning. And then there is Centrella — the kind of person who becomes a permanent resident of your heart, whether you invited her or not.</p>
-          </div>
-        </div>
+      <div class="quality-card reveal" style="transition-delay:.18s">
+        <span class="quality-emoji">💌</span>
+        <div class="quality-title">The Feeling She Gives</div>
+        <p class="quality-text">There are people you meet and forget by the next morning. And then there is Centrella — the kind of person who becomes a permanent resident of your heart, whether you invited her or not.</p>
       </div>
 
-      <div class="moment-card reveal" style="transition-delay:.30s">
-        <div class="moment-inner">
-          <span class="moment-emoji">✨</span>
-          <div>
-            <div class="moment-title">Her Grace</div>
-            <p class="moment-text">Everything she does carries a quiet, unhurried elegance — as if she was born knowing something sacred that the rest of us spend our whole lives searching for and never quite find.</p>
-          </div>
-        </div>
+      <div class="quality-card reveal" style="transition-delay:.24s">
+        <span class="quality-emoji">✨</span>
+        <div class="quality-title">Her Grace</div>
+        <p class="quality-text">Everything she does carries a quiet, unhurried elegance — as if she was born knowing something sacred that the rest of us spend our whole lives searching for and never quite find.</p>
       </div>
 
-      <div class="moment-card reveal" style="transition-delay:.38s">
-        <div class="moment-inner">
-          <span class="moment-emoji">💖</span>
-          <div>
-            <div class="moment-title">Simply Her</div>
-            <p class="moment-text">Beyond beautiful. Beyond words. She is the kind of rare that only comes once in a lifetime — and I am endlessly, humbly grateful that my lifetime was the one that got to meet her.</p>
-          </div>
+      <div class="quality-card reveal" style="transition-delay:.30s; grid-column: 1 / -1;">
+        <div style="max-width:540px; margin:0 auto; text-align:center;">
+          <span class="quality-emoji">💖</span>
+          <div class="quality-title">Simply Her</div>
+          <p class="quality-text">Beyond beautiful. Beyond words. She is the kind of rare that only comes once in a lifetime — and I am endlessly, humbly grateful that my lifetime was the one that got to meet her.</p>
         </div>
       </div>
 
@@ -421,15 +636,14 @@
 
 
 <!-- GALLERY -->
-<div class="gallery-bg" id="gallery">
+<div class="gallery-wrap" id="gallery">
   <div class="section">
-    <p class="sec-label reveal">Moments &amp; Memories</p>
-    <h2 class="sec-title reveal">Her Gallery</h2>
-    <div class="divider reveal"><div class="dl"></div><span class="dg">📷</span><div class="dr"></div></div>
+    <p class="sec-overline reveal">Moments &amp; Memories</p>
+    <h2 class="sec-title reveal">Her <em>Gallery</em></h2>
+    <div class="ornament reveal"><div class="orn-line l"></div><span class="orn-icon">📷</span><div class="orn-line r"></div></div>
 
     <div class="gallery-grid">
 
-      <!-- VIDEO 1 — wide -->
       <figure class="g-item wide reveal" style="transition-delay:.05s">
         <div class="g-media">
           <video src="Vdeo1.mp4" autoplay muted loop playsinline></video>
@@ -438,7 +652,6 @@
         <figcaption>She moves like poetry — every second of this is perfection 🎬</figcaption>
       </figure>
 
-      <!-- PHOTO 1 — red dress -->
       <figure class="g-item reveal" style="transition-delay:.10s">
         <div class="g-media">
           <img src="Centrella1.jpeg" alt="Centrella in a beautiful red floral dress">
@@ -446,7 +659,6 @@
         <figcaption>That red dress, that poise — she makes everything look like a painting 🌹</figcaption>
       </figure>
 
-      <!-- VIDEO 2 -->
       <figure class="g-item reveal" style="transition-delay:.15s">
         <div class="g-media">
           <video src="Video2.mp4" autoplay muted loop playsinline></video>
@@ -455,7 +667,6 @@
         <figcaption>Her energy — radiant, warm and completely captivating 🌙</figcaption>
       </figure>
 
-      <!-- VIDEO 3 -->
       <figure class="g-item reveal" style="transition-delay:.20s">
         <div class="g-media">
           <video src="Video3.mp4" autoplay muted loop playsinline></video>
@@ -464,15 +675,13 @@
         <figcaption>The way she carries herself — effortless, graceful, unforgettable ✨</figcaption>
       </figure>
 
-      <!-- PHOTO 2 — blue outfit wide -->
       <figure class="g-item wide reveal" style="transition-delay:.25s">
         <div class="g-media">
           <img src="Centrella2.jpeg" alt="Centrella in a stunning blue outfit">
         </div>
-        <figcaption>Blue was always her colour — she wears it like she owns every street she walks 💙✦</figcaption>
+        <figcaption>Blue was always her colour — she wears it like she owns every street she walks 💙</figcaption>
       </figure>
 
-      <!-- VIDEO 4 -->
       <figure class="g-item reveal" style="transition-delay:.30s">
         <div class="g-media">
           <video src="Video4.mp4" autoplay muted loop playsinline></video>
@@ -481,7 +690,6 @@
         <figcaption>A moment frozen in time — one I never want to forget 💫</figcaption>
       </figure>
 
-      <!-- PHOTO 3 — mirror selfie -->
       <figure class="g-item reveal" style="transition-delay:.35s">
         <div class="g-media">
           <img src="Centrella3.jpeg" alt="Centrella mirror selfie">
@@ -495,12 +703,14 @@
 
 
 <!-- POEM -->
-<div class="poem-bg" id="poem">
-  <div class="section" style="padding-bottom:60px;">
-    <p class="sec-label reveal">Written For Her</p>
-    <h2 class="sec-title reveal">A Poem</h2>
-    <div class="divider reveal"><div class="dl"></div><span class="dg">🌹</span><div class="dr"></div></div>
-    <div class="poem-wrap reveal">
+<div class="poem-wrap-outer" id="poem">
+  <div class="section" style="padding-bottom:72px;">
+    <p class="sec-overline reveal">Written for her</p>
+    <h2 class="sec-title reveal">A <em>Poem</em></h2>
+    <div class="ornament reveal"><div class="orn-line l"></div><span class="orn-icon">🌹</span><div class="orn-line r"></div></div>
+
+    <div class="poem-card reveal">
+      <div class="poem-quote-mark">"</div>
       <p class="poem-text">
         In all the places I have been,<br>
         among all the faces I have seen,<br>
@@ -519,21 +729,21 @@
         the most beautiful girl I have ever met,<br>
         the finest sight these eyes have heard.
       </p>
-      <p class="poem-sig">— written for Centrella, by VJuma ✦</p>
+      <p class="poem-sig">— written for Centrella, by VJuma &nbsp;✦</p>
     </div>
   </div>
 </div>
 
 
 <!-- LOVE LETTER -->
-<div class="message-bg" id="message">
-  <div class="message-inner">
-    <span class="msg-eyebrow reveal">A love letter from the heart</span>
-    <h2 class="msg-title reveal">Dear Centrella</h2>
-    <div class="msg-divider reveal">
-      <div class="mdl"></div><span style="color:var(--gold);font-size:14px;">✦</span><div class="mdr"></div>
-    </div>
-    <p class="msg-body reveal">
+<div class="letter-wrap" id="message">
+  <div class="letter-inner">
+    <div class="sec-overline reveal" style="margin-bottom:0;">A letter from the heart</div>
+    <div class="letter-salutation reveal">Dear Centrella,</div>
+
+    <div class="ornament reveal"><div class="orn-line l"></div><span class="orn-icon">✦</span><div class="orn-line r"></div></div>
+
+    <p class="letter-body reveal">
       I don't know if words were ever truly made for moments like this —
       for the kind of feeling that lives in your chest, warm and full and completely beyond explanation.
       But I will try. Because you deserve to hear it.<br><br>
@@ -553,15 +763,17 @@
 
       I built this page because I wanted you to have something —
       something real and permanent, something that says:
-      <em>you were seen. You were admired. You were celebrated.</em>
+      you were seen. You were admired. You were celebrated.
       Not because of what you do, but simply because of who you are.<br><br>
 
       <strong>Centrella</strong> — you are extraordinary.
       And I am endlessly grateful to live in a world that has you in it.
     </p>
-    <div class="msg-close reveal">
-      With love &amp; deep admiration 🌹
-      <span style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;display:block;margin-top:8px;">— VJuma</span>
+
+    <div class="letter-sign reveal">
+      <div class="ornament" style="margin-bottom:24px;"><div class="orn-line l"></div><span class="orn-icon">🌹</span><div class="orn-line r"></div></div>
+      <p class="letter-love-line">With love &amp; deep admiration</p>
+      <div class="letter-sign-from">VJuma</div>
     </div>
   </div>
 </div>
@@ -569,13 +781,13 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-rose">🌹</span>
-  <p class="footer-dedicating">This page is lovingly dedicated to</p>
-  <p class="footer-name">Centrella</p>
-  <div class="footer-divider">
-    <div class="fdl"></div><span style="color:rgba(212,169,106,.5);font-size:12px;">✦</span><div class="fdr"></div>
+  <div class="footer-name">Centrella</div>
+  <div class="ornament" style="margin:20px auto 16px;">
+    <div class="orn-line l" style="width:40px;background:linear-gradient(to right,transparent,rgba(212,169,106,.3));"></div>
+    <span style="font-size:14px; color:rgba(212,169,106,.4);">✦</span>
+    <div class="orn-line r" style="width:40px;background:linear-gradient(to left,transparent,rgba(212,169,106,.3));"></div>
   </div>
-  <p class="footer-built">Built with love by <span>VJuma</span> &nbsp;✦&nbsp; Always 🌹</p>
+  <p class="footer-line">Built with love by <span>VJuma</span> &nbsp;·&nbsp; Always 🌹</p>
 </footer>
 
 
@@ -588,50 +800,47 @@
 
 
 <script>
-/* Floating hearts */
-const hearts = ['💕','🌸','💖','🌹','✨','💗','🦋','💫'];
-for(let i = 0; i < 12; i++){
-  const h = document.createElement('div');
-  h.className = 'heart-float';
-  h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-  h.style.cssText = `left:${Math.random()*100}%;font-size:${10+Math.random()*12}px;animation-duration:${10+Math.random()*14}s;animation-delay:${Math.random()*14}s;`;
-  document.body.appendChild(h);
-}
+/* ── Custom cursor ── */
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,figure,div[onclick]').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+});
 
-/* Hero petals */
-const hero = document.getElementById('hero');
-for(let i = 0; i < 20; i++){
+/* ── Floating particles ── */
+const glyphs = ['🌹','💕','🌸','✨','💖','💫','🦋','🌙'];
+for(let i = 0; i < 16; i++){
   const p = document.createElement('div');
-  p.className = 'petal';
-  const s = 7 + Math.random() * 18;
-  p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;background:hsl(${336+Math.random()*30},${52+Math.random()*22}%,${72+Math.random()*14}%);animation-duration:${7+Math.random()*10}s;animation-delay:${Math.random()*10}s;`;
-  hero.appendChild(p);
+  p.className = 'particle';
+  p.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+  p.style.cssText = `left:${Math.random()*100}%;font-size:${9+Math.random()*10}px;animation-duration:${12+Math.random()*16}s;animation-delay:${Math.random()*16}s;`;
+  document.body.appendChild(p);
 }
 
-/* Scroll reveal */
+/* ── Scroll reveal ── */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold:.07 });
+}, { threshold: .07 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* Lightbox */
+/* ── Lightbox ── */
 document.querySelectorAll('figure.g-item').forEach(fig => {
   fig.addEventListener('click', () => {
     const img = fig.querySelector('img');
     const vid = fig.querySelector('video');
     const cap = fig.querySelector('figcaption');
-    const hasImg = img && img.getAttribute('src');
-    const hasVid = vid && vid.getAttribute('src');
-    if(!hasImg && !hasVid) return;
-    const lc = document.getElementById('lbContent');
+    const lc  = document.getElementById('lbContent');
     lc.innerHTML = '';
-    if(hasImg){
+    if(img && img.src){
       const i = document.createElement('img'); i.src = img.src; lc.appendChild(i);
-    } else {
+    } else if(vid && vid.src){
       const v = document.createElement('video');
-      v.src = vid.src; v.controls = true; v.autoplay = true; v.playsinline = true;
-      lc.appendChild(v);
-    }
+      v.src = vid.src; v.controls = true; v.autoplay = true; v.playsinline = true; lc.appendChild(v);
+    } else return;
     document.getElementById('lbCaption').textContent = cap ? cap.textContent.trim() : '';
     document.getElementById('lightbox').classList.add('open');
   });
